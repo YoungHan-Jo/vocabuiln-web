@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko" class="show-ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulin - Support</title>
+    <style>
+        :root {
+            --primary-color: #1a3a3a; /* 보카불린 메인 딥 그린 */
+            --accent-color: #d4af37;  /* 위스키 골드 포인트 */
+            --text-color: #333;
+            --bg-color: #faf8f5;
+        }
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Hiragino Sans', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            padding-bottom: 40px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        h1 { color: var(--primary-color); margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; color: #666; }
+        
+        section { margin-top: 40px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        h2 { color: var(--primary-color); border-left: 4px solid var(--accent-color); padding-left: 15px; }
+        
+        .contact-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .contact-button:hover { background: #2a5a5a; }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-bottom: 40px;
+            font-size: 0.9em;
+            color: #888;
+        }
+        .links a { color: #888; margin: 0 10px; text-decoration: none; }
+        .links a:hover { text-decoration: underline; }
+
+        /* 언어별 노출: html 클래스로만 제어 (JS 없어도 한국어 기본 표시) */
+        html.show-ja .lang-ko { display: none !important; }
+        html.show-ko .lang-ja { display: none !important; }
+    </style>
+</head>
+<body>
+<script>
+    (function () {
+        var lang = (navigator.language || navigator.userLanguage || 'ko').toLowerCase();
+        if (lang.indexOf('ja') === 0) {
+            document.documentElement.classList.remove('show-ko');
+            document.documentElement.classList.add('show-ja');
+        }
+    })();
+</script>
+
+<div class="container">
+    <header>
+        <h1 id="app-name">Vocabulin</h1>
+        <p class="subtitle lang-ko" lang="ko">가장 많이 쓰는 영단어부터, 확실한 암기 루프</p>
+        <p class="subtitle lang-ja" lang="ja">最も使われる英単語から、確実な暗記ループ</p>
+    </header>
+
+    <div class="lang-ko" lang="ko">
+        <section>
+            <h2>고객 지원 (Support)</h2>
+            <p>보카불린 사용 중 궁금한 점이나 개선 제안, 버그 제보가 있으신가요? 아래 메일로 연락 주시면 최대한 빠르게 답변해 드리겠습니다.</p>
+            <p>vocabuiln.support@gmail.com</p>
+            <a href="mailto:vocabuiln.support@gmail.com" class="contact-button">문의 메일 보내기</a>
+        </section>
+
+        <section>
+            <h2>자주 묻는 질문 (FAQ)</h2>
+            <p><strong>Q: 학습 데이터는 어떻게 저장되나요?</strong><br>
+            A: 사용자의 학습 진행 상황은 기기 내부에 안전하게 저장됩니다.</p>
+            <p><strong>Q: 광고가 보이지 않습니다.</strong><br>
+            A: 네트워크 연결 상태를 확인해 주세요.</p>
+        </section>
+    </div>
+
+    <div class="lang-ja" lang="ja">
+        <section>
+            <h2>カスタマーサポート (Support)</h2>
+            <p>ボカブリンの使用中にご不明な点や改善案、バグ報告などがございましたら、下記のメールまでご連絡ください。迅速に対応いたします。</p>
+            <p>vocabuiln.support@gmail.com</p>
+            <a href="mailto:vocabuiln.support@gmail.com" class="contact-button">お問い合わせメールを送る</a>
+        </section>
+
+        <section>
+            <h2>よくある質問 (FAQ)</h2>
+            <p><strong>Q: 学習データはどのように保存されますか？</strong><br>
+            A: 学習の進捗状況は端末内に安全に保存されます。</p>
+            <p><strong>Q: 広告が表示されません。</strong><br>
+            A: ネットワークの接続状態を確認してください。</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Vocabulin. All rights reserved.</p>
+        <div class="links">
+            <a href="privacy.html" id="link-privacy">Privacy Policy</a>
+            <a href="app-ads.txt">app-ads.txt</a>
+        </div>
+    </footer>
+</div>
+
+<script>
+    (function () {
+        var userLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        var privacyLink = document.getElementById('link-privacy');
+        if (!privacyLink) return;
+
+        if (userLang.indexOf('ja') === 0) {
+            privacyLink.textContent = 'プライバシーポリシー';
+            document.title = 'ボカブリン (Vocabulin) - サポート';
+        } else {
+            privacyLink.textContent = '개인정보처리방침';
+            document.title = '보카불린 (Vocabulin) - 고객지원';
+        }
+    })();
+</script>
+
+</body>
+</html>
